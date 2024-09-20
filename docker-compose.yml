@@ -1,5 +1,3 @@
-version: '3.9'  # Versão da especificação
-
 services:
   apache:
     image: httpd:latest   # Última versão da imagem Apache
