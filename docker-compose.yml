@@ -1,0 +1,13 @@
+version: '3.9'  # Versão da especificação
+
+services:
+  apache:
+    image: httpd:latest   # Última versão da imagem Apache
+    container_name: my-apache-app  # Nome do contêiner
+    ports:
+      - '80:80'  # Mapeamento da porta 80 do host para o contêiner
+    volumes:
+      - type: bind  # Tipo de volume (bind monta um diretório do host)
+        source: ./website  # Diretório local a ser montado
+        target: /usr/local/apache2/htdocs  # Diretório no contêiner
+    restart: unless-stopped  # O contêiner será reiniciado se parar, a menos que seja explicitamente parado
